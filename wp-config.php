@@ -15,5 +15,17 @@ if (!defined('ABSPATH')) {
     define('ABSPATH', dirname(__FILE__) . '/');
 }
 
+if ( !defined( 'RT_WP_NGINX_HELPER_CACHE_PATH' ) ) {
+    define( 'RT_WP_NGINX_HELPER_CACHE_PATH', '/var/run/nginx-cache' );
+}
+
+if ( !defined( 'WP_AUTO_UPDATE_CORE' ) ) {
+    define( 'WP_AUTO_UPDATE_CORE', false );
+}
+
+if ( !defined( 'CORE_UPGRADE_SKIP_NEW_BUNDLED' ) ) {
+    define( 'CORE_UPGRADE_SKIP_NEW_BUNDLED', true );
+}
+
 require_once(ABSPATH . 'wp-secrets.php');
 require_once(ABSPATH . 'wp-settings.php');

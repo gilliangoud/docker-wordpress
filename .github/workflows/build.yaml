@@ -7,7 +7,7 @@ on:
   pull_request:
 
 env:
-  IMAGE_NAME: trafex/wordpress
+  IMAGE_NAME: gilliangoud/wordpress
   IMAGE_TAG: ${{ github.sha }}
   DOCKER_BUILDKIT: 1
 

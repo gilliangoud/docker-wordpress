@@ -1,0 +1,3 @@
+ - allow additions to the nginx config through environment (by specifying rules or a file to include)
+ - https://github.com/openresty/srcache-nginx-module#caching-with-redis install and setup caching
+ - add the nginx_cache_purge module

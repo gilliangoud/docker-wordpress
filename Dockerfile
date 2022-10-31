@@ -1,5 +1,5 @@
 FROM alpine:3.16
-LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
+LABEL Maintainer="Gillian Goud <gillian@goud-it.nl>" \
       Description="Lightweight WordPress container with Nginx 1.22 & PHP-FPM 8.0 based on Alpine Linux."
 
 # Install packages
@@ -59,7 +59,7 @@ RUN mkdir -p /usr/src
 RUN curl -o wordpress.tar.gz -SL https://wordpress.org/wordpress-${WORDPRESS_VERSION}.tar.gz \
 	&& echo "$WORDPRESS_SHA1 *wordpress.tar.gz" | sha1sum -c - \
 	&& tar -xzf wordpress.tar.gz -C /usr/src/ \
-	&& rm wordpress.tar.gz \    
+	&& rm wordpress.tar.gz \
 	&& chown -R nobody.nobody /usr/src/wordpress
 
 # Add WP CLI
