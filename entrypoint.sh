@@ -13,14 +13,15 @@ if [ ! "$(ls -A "/var/www/wp-content" 2>/dev/null)" ]; then
     # Generate secrets
     curl -f https://api.wordpress.org/secret-key/1.1/salt/ >> /usr/src/wordpress/wp-secrets.php
 fi
-exec "$@"
 
 # Check if volume is empty
 if [ ! -f /usr/src/wordpress/wp-secrets.php ]; then
     cat <<<"Setting up wp-secrets."
-    echo "<?php\n" > /usr/src/wordpress/wp-secrets.php
+    echo "<?php" > /usr/src/wordpress/wp-secrets.php
     chown nobody.nobody /usr/src/wordpress/wp-secrets.php
     chmod 640 /usr/src/wordpress/wp-secrets.php
     # Generate secrets
     curl -f https://api.wordpress.org/secret-key/1.1/salt/ >> /usr/src/wordpress/wp-secrets.php
 fi
+
+exec "$@"
