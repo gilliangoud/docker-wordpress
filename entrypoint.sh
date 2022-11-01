@@ -24,4 +24,9 @@ if [ ! -f /usr/src/wordpress/wp-secrets.php ]; then
     curl -f https://api.wordpress.org/secret-key/1.1/salt/ >> /usr/src/wordpress/wp-secrets.php
 fi
 
+su -s /bin/bash nobody -c 'wp plugin install nginx-cache/ --activate --path="/usr/src/wordpress"'
+
+# rm -rf /usr/src/wordpress/wp-content
+# ln -s /var/www/wp-content /usr/src/wordpress
+
 exec "$@"
